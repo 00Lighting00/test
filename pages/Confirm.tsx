@@ -1,17 +1,22 @@
 //入力確認画面のコンポーネント
 import { useRouter } from "next/router";
+import { useState } from 'react';
 import { useFormContext, SubmitHandler, FormProvider } from "react-hook-form";
 import type { ContactType } from "type/contact";
+import GenderSelect from "./Selectbox";
 
 const Confirm = () => {
     const router = useRouter();
 
-    const { handleSubmit,
+    const {
+        handleSubmit,
         getValues,
         formState: { isValid }
     } = useFormContext<ContactType>();
 
     const values = getValues(); //入力データの取得
+
+    const [gender, setGender] = useState();
 
     if (!isValid) {
         router.push('/');
@@ -36,8 +41,13 @@ const Confirm = () => {
                 </div>
 
                 <div className="form-unit">
+                    <p className="form-unit-tittle">性別</p>
+                    <h4>???{values.gender}</h4>
+                </div>
+
+                <div className="form-unit">
                     <p className="form-unit-title">選択した内容</p>
-                    <h4>???{values.checkedValues}</h4>
+                    <h4> {values.checkedValues} </h4>
                 </div>
 
                 <div className="form-actionArea">
