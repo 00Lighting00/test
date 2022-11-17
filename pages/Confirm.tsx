@@ -37,7 +37,7 @@ const Confirm = () => {
 
                 <div className="form-unit">
                     <p className="form-unit-title">選択した内容</p>
-                    <h4>??{values.checkedValues}</h4>
+                    <h4>???{values.checkedValues}</h4>
                 </div>
 
                 <div className="form-actionArea">

@@ -90,7 +90,7 @@ const Contact = () => {
                     <p className="form-unit-title">内容考え中......(複数選択可能)</p>
                     <label>
                         <input
-                            type='checkbox'
+                            type="checkbox"
                             value="A"
                             onChange={handleChange}
                             checked={checkedValues.includes("A")}
@@ -100,7 +100,7 @@ const Contact = () => {
 
                     <label>
                         <input
-                            type='checkbox'
+                            type="checkbox"
                             value="B"
                             onChange={handleChange}
                             checked={checkedValues.includes("B")}
