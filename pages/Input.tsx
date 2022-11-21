@@ -5,23 +5,37 @@ import { useFormContext, SubmitHandler, FormProvider } from "react-hook-form"; /
 import { ErrorMessage } from "@hookform/error-message"; //エラーメッセージコンポーネント
 import { useState } from 'react';
 import type { ContactType } from "type/contact";
-import GenderSelect from "./Selectbox";
+import Confirm from "./Confirm";
+
 
 
 
 const Contact = () => {
+
+    //入力内容確認画面の表示・非表示をコントロール
+    const [isConfirmationVisible, setIsConfirmationVisible] = useState(false)
+
+    //はじめは入力内容確認画面は非表示に
+    const hideConfirmation = () => setIsConfirmationVisible(false)
+
+    //入力内容確認画面の閉じるボタンを押した時非表示にする関数
+    const onSubmitData = () => setIsConfirmationVisible(true)
+
+
     //ここから名前を入力する箇所のシステムの記述
     const router = useRouter();
     const {
         register,
+        watch,
         handleSubmit,
+        getValues,
         formState: { errors, isValid }
     } = useFormContext();
 
-    const onSubmit: SubmitHandler<ContactType> = async (data) => {
+    /*const onSubmit: SubmitHandler<ContactType> = async (data) => {
         console.log(data);
         router.push('/?confirm=1');
-    }
+    }*/
 
     const rules = {
         pattern: { value: /^(?!.*\d).*$/i, message: "※漢字、ひらがな、アルファベットで入力してください。" }, //現在は数字が入るとOUT
@@ -37,6 +51,24 @@ const Contact = () => {
     }
     //ここまでが名前を入力する箇所のシステムの記述
 
+
+    //ここから性別入力欄のシステムの記述
+    const [gender, setGender] = useState();
+
+    const Gender = watch("gender")
+
+    const handleChange = (event) => {
+        let gender;
+        gender = event.target.value;
+        setGender(event.target.value);
+        console.log("event.target.value：" + event.target.value);
+        console.log("gender：" + gender)
+    }
+
+    const rules_gender = {
+        required: "※こちらは入力必須項目です。"
+    }
+    //ここまでが性別入力欄のシステムの記述
 
 
     //ここからはチェックボックスのシステムの記述
@@ -60,7 +92,7 @@ const Contact = () => {
             <h1>自己紹介入力フォーム</h1>
             <h3>以下の各項目を入力してください。</h3>
             <h5>*の項目は入力必須項目です。</h5>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmitData)}>
                 { /* ここから名前を入力する欄のUI */}
                 <div className="form-unit">
                     <p className="form-unit-title">姓*</p>
@@ -95,7 +127,17 @@ const Contact = () => {
 
 
                 { /*ここから性別を選択するシステムとそのUI */}
-                <GenderSelect />
+                <div>
+                    <p>性別* </p>
+                    <label>
+                        <select {...register("gender", rules_gender)} onChange={handleChange}>
+                            <option value="">選択......</option>
+                            <option value="男性">男性</option>
+                            <option value="女性">女性</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </label>
+                </div >
                 { /*ここまでが性別を選択するシステムとそのUI */}
 
 
@@ -146,11 +188,16 @@ const Contact = () => {
 
 
                 <div className="form-actionArea">
-                    <button type="submit" class="form-submitButton">
+                    <button type="submit" className="form-submitButton">
                         入力内容を確認する。
                     </button>
                 </div>
             </form>
+            {isConfirmationVisible &&
+                <Confirm
+                    values={getValues()}
+                    hideConfirmation={hideConfirmation}
+                />}
         </div>
     )
 }

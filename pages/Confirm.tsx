@@ -2,25 +2,22 @@
 import { useRouter } from "next/router";
 import { useState } from 'react';
 import { useFormContext, SubmitHandler, FormProvider } from "react-hook-form";
-import type { ContactType } from "type/contact";
-import GenderSelect from "./Selectbox";
 
-const Confirm = () => {
+
+const Confirm = props => {
     const router = useRouter();
 
-    const {
+    /*const {
         handleSubmit,
         getValues,
         formState: { isValid }
-    } = useFormContext<ContactType>();
+    } = useFormContext<ContactType>();*/
 
-    const values = getValues(); //入力データの取得
+    const { values, hideConfirmation } = props
 
-    const [gender, setGender] = useState();
-
-    if (!isValid) {
+    /*if (!isValid) {
         router.push('/');
-    }
+    }*/
 
     const onSubmit: SubmitHandler<ContactType> = async (data) => {
         console.log("入力した内容は正常に送信されました。")
@@ -28,8 +25,8 @@ const Confirm = () => {
 
     return (
         <div>
-            <h1>入力確認画面</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <h3>入力した内容を確認してください。</h3>
+            <form /*onSubmit={handleSubmit(onSubmit)}*/>
                 <div className="form-unit">
                     <p className="form-unit-title">氏名</p>
                     <h4>{values.firstname}　{values.lastname}</h4>
@@ -42,7 +39,7 @@ const Confirm = () => {
 
                 <div className="form-unit">
                     <p className="form-unit-tittle">性別</p>
-                    <h4>???{values.gender}</h4>
+                    <h4>{values.gender}</h4>
                 </div>
 
                 <div className="form-unit">
@@ -52,12 +49,11 @@ const Confirm = () => {
 
                 <div className="form-actionArea">
                     <div className="form-buttonWrapper">
-                        <button type="submit" className="form-submitButton">
-                            送信する
-                        </button>
-                        <button>
-                            <p className="for-backButton">入力内容を修正する</p>
-                        </button>
+                        <input
+                            type="button"
+                            onClick={hideConfirmation}
+                            value="入力確認を閉じる。"
+                        />
                     </div>
                 </div>
             </form>
