@@ -2,9 +2,10 @@
 import { useRouter } from "next/router";
 import { useState } from 'react';
 import { useFormContext, SubmitHandler, FormProvider } from "react-hook-form";
+import Contact from "./Input";
+import type { ContactType } from "types/contact";
 
-
-const Confirm = props => {
+const Confirm = () => {
     const router = useRouter();
 
     /*const {
@@ -13,19 +14,27 @@ const Confirm = props => {
         formState: { isValid }
     } = useFormContext<ContactType>();*/
 
-    const { values, hideConfirmation } = props
+    //const { values, hideConfirmation } = props
+
+    const { getValues } = useFormContext<ContactType>();
+    const values = getValues();
+
+    const onSubmit: SubmitHandler<ContactType> = async (data) => {
+        console.log(data);
+        router.push('/');
+    }
 
     /*if (!isValid) {
         router.push('/');
     }*/
 
-    const onSubmit: SubmitHandler<ContactType> = async (data) => {
+    /*const onSubmit: SubmitHandler<ContactType> = async (data) => {
         console.log("入力した内容は正常に送信されました。")
-    }
+    }*/
 
     return (
         <div>
-            <h3>入力した内容を確認してください。</h3>
+            <h1>入力確認画面</h1>
             <form /*onSubmit={handleSubmit(onSubmit)}*/>
                 <div className="form-unit">
                     <p className="form-unit-title">氏名</p>
@@ -51,7 +60,7 @@ const Confirm = props => {
                     <div className="form-buttonWrapper">
                         <input
                             type="button"
-                            onClick={hideConfirmation}
+                            onClick={onSubmit}
                             value="入力確認を閉じる。"
                         />
                     </div>

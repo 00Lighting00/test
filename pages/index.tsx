@@ -9,6 +9,7 @@ const Main = () => {
   const router = useRouter(); //コンポーネントを切り替えるための値を取得する。
   const isConfirm = router.query.confirm;
 
+
   const methods = useForm({
     mode: "onChange",
     criteriaMode: "all"

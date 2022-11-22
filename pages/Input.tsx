@@ -1,17 +1,18 @@
 //入力画面のコンポーネント
 import React from 'react';
-import { useRouter } from "next/router"; //Next.jsの機能
+import { useRouter } from "next/router";
 import { useFormContext, SubmitHandler, FormProvider } from "react-hook-form"; //SubmitHandlerは、submitイベントに関する関数の型宣言に使う
-import { ErrorMessage } from "@hookform/error-message"; //エラーメッセージコンポーネント
 import { useState } from 'react';
-import type { ContactType } from "type/contact";
 import Confirm from "./Confirm";
-
-
-
+import type { ContactType } from "types/contact";
 
 const Contact = () => {
 
+    //ココから入力確認欄の表示、非表示(多分後々いらなくなる。)
+
+    const router = useRouter();
+
+    /*
     //入力内容確認画面の表示・非表示をコントロール
     const [isConfirmationVisible, setIsConfirmationVisible] = useState(false)
 
@@ -20,22 +21,23 @@ const Contact = () => {
 
     //入力内容確認画面の閉じるボタンを押した時非表示にする関数
     const onSubmitData = () => setIsConfirmationVisible(true)
+    //ココまで入力確認画面の表示・非表示
+    */
 
 
     //ここから名前を入力する箇所のシステムの記述
-    const router = useRouter();
+    //const router = useRouter();
     const {
         register,
         watch,
         handleSubmit,
-        getValues,
-        formState: { errors, isValid }
+        formState: { errors }
     } = useFormContext();
 
-    /*const onSubmit: SubmitHandler<ContactType> = async (data) => {
+    const onSubmit: SubmitHandler<ContactType> = async (data) => {
         console.log(data);
         router.push('/?confirm=1');
-    }*/
+    }
 
     const rules = {
         pattern: { value: /^(?!.*\d).*$/i, message: "※漢字、ひらがな、アルファベットで入力してください。" }, //現在は数字が入るとOUT
@@ -92,7 +94,7 @@ const Contact = () => {
             <h1>自己紹介入力フォーム</h1>
             <h3>以下の各項目を入力してください。</h3>
             <h5>*の項目は入力必須項目です。</h5>
-            <form onSubmit={handleSubmit(onSubmitData)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 { /* ここから名前を入力する欄のUI */}
                 <div className="form-unit">
                     <p className="form-unit-title">姓*</p>
@@ -188,16 +190,16 @@ const Contact = () => {
 
 
                 <div className="form-actionArea">
-                    <button type="submit" className="form-submitButton">
+                    <button>
                         入力内容を確認する。
                     </button>
                 </div>
             </form>
-            {isConfirmationVisible &&
+            {/*{isConfirmationVisible &&
                 <Confirm
                     values={getValues()}
                     hideConfirmation={hideConfirmation}
-                />}
+            />}*/}
         </div>
     )
 }
