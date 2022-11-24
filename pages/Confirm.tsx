@@ -1,6 +1,10 @@
 import { useRouter } from "next/router";
 import { useFormContext, SubmitHandler } from "react-hook-form";
 import type { ContactType } from "types/contact";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+
+
 
 const Confirm = () => {
     const router = useRouter();
@@ -39,20 +43,9 @@ const Confirm = () => {
                     <p>選択した内容</p>
                     <h4>{values.checkedValues}</h4>
                 </div>
-
-                <div>
-                    <input
-                        type="button"
-                        onClick={submit}
-                        value="送信"
-                    />
-                    <input
-                        type="button"
-                        onClick={onSubmit}
-                        value="戻って入力内容を修正する。"
-                    />
-                </div>
             </form>
+            <Button variant="contained" size="large" onClick={submit}>送信</Button>
+            <Button variant="contained" size="large" onClick={onSubmit}>戻って修正する</Button>
         </div>
     )
 }

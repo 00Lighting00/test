@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFormContext } from "react-hook-form"; //SubmitHandlerは、submitイベントに関する関数の型宣言に使う
+import TextField from '@mui/material/TextField';
 
 const InputName = (props) => {
     const {
@@ -17,7 +18,9 @@ const InputName = (props) => {
         <div>
             <form>
                 <p>{props.Firstname}</p>
-                <input
+                <TextField
+                    id="outlined-name"
+                    label="姓*"
                     {...register("firstname", rules)}
                     type="text"
                     className="input-text"
@@ -25,7 +28,9 @@ const InputName = (props) => {
                 {errors.firstname && errors.firstname.message}
 
                 <p>{props.Lastname}</p>
-                <input
+                <TextField
+                    id="outlined-name"
+                    label="名*"
                     {...register("lastname", rules)}
                     type="text"
                     className="input-text"

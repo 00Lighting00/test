@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormContext } from "react-hook-form"; //SubmitHandlerは、submitイベントに関する関数の型宣言に使う
 import { useState } from 'react';
+import Checkbox from "@mui/material/Checkbox"; // or import { Checkbox } from '@mui/material';
 
 const InputCheck = (props) => {
     const { register } = useFormContext();
@@ -23,9 +24,8 @@ const InputCheck = (props) => {
         <div>
             <form>
                 <label>
-                    <input
+                    <Checkbox
                         {...register("checkedValues")}
-                        type="checkbox"
                         value={props.Item}
                         onChange={handleChange}
                     />

@@ -1,5 +1,6 @@
 import React from 'react';
-import { useFormContext, SubmitHandler, FormProvider } from "react-hook-form"; //SubmitHandlerは、submitイベントに関する関数の型宣言に使う
+import { useFormContext } from "react-hook-form"; //SubmitHandlerは、submitイベントに関する関数の型宣言に使う
+import TextField from '@mui/material/TextField';
 
 const InputAge = (props) => {
     const {
@@ -17,8 +18,9 @@ const InputAge = (props) => {
     return (
         <div>
             <p>{props.Age}</p>
-            <input
+            <TextField
                 {...register("age", rules)}
+                label="年齢*"
                 type="text"
             />
             {errors.age && errors.age.message}
