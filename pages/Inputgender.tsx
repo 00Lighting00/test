@@ -4,6 +4,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import FormLabel from '@mui/material/FormLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const InputGender = (props) => {
 
@@ -23,9 +27,9 @@ const InputGender = (props) => {
     }
 
     return (
-        <div>
-            <p>{props.Gender}</p>
-            <FormControl sx={{ m: 1, minWidth: 100 }}>
+        <div className="form-input-gender">
+            <p></p>
+            <FormControl sx={{ minWidth: 100 }}>
                 <InputLabel id="box_label">性別*</InputLabel>
                 <Select
                     labelId="box_label"

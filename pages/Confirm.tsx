@@ -21,7 +21,7 @@ const Confirm = () => {
     }
 
     return (
-        <div>
+        <div className="confirm">
             <h1>確認画面</h1>
             <form>
                 <div>

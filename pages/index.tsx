@@ -14,8 +14,9 @@ Mainから項目の名前をInputシリーズへ流し込む。
 MUI導入後の問題点
 ・入力確認画面で「戻って修正する」をクリックして入力画面に戻った際にセレクトボックスとチェックボックスで入力した情報が画面から消えている。
  -その状態で何も入力しないで「入力内容を確認する」をクリックすると入力確認画面では情報は表示されるので、値の保持はできている模様。画面に表示させ続けることが必要。
-・ボタンの間隔を変えられるようにする。
- -Stackタグを用いたところ思うような挙動にならなかった。
+ ・自由にレイアウトできない。
+ -ボタンどうしの間隔を変えられるようにする。
+ -Stackタグを用いたところ思うような挙動にならなかった。 ->CSSでレイアウト
 */
 import { useRouter } from "next/router";
 import { useForm, FormProvider } from "react-hook-form";
@@ -43,6 +44,7 @@ const Main = () => {
     criteriaMode: "all",
   })
 
+
   return (
     <div className="wrapper">
       <FormProvider {...methods}>
@@ -53,7 +55,7 @@ const Main = () => {
             <InputAge />
             <InputGender />
 
-            <p>{check}</p>
+            {/*<p className="form-input-check">{check}</p>
             {CheckList.map((CheckItem) => {
               return (
                 // eslint-disable-next-line react/jsx-key
@@ -62,7 +64,12 @@ const Main = () => {
                 />
               )
             })
-            }
+            }*/}
+
+            <p className="form-input-check">{check}</p>
+            <InputCheck />
+
+
             <Footer />
           </>
         ) : (

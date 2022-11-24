@@ -16,10 +16,9 @@ const InputName = (props) => {
 
     return (
         <div>
-            <form>
+            <form className="form-input-name">
                 <p>{props.Firstname}</p>
                 <TextField
-                    id="outlined-name"
                     label="姓*"
                     {...register("firstname", rules)}
                     type="text"
@@ -29,7 +28,6 @@ const InputName = (props) => {
 
                 <p>{props.Lastname}</p>
                 <TextField
-                    id="outlined-name"
                     label="名*"
                     {...register("lastname", rules)}
                     type="text"

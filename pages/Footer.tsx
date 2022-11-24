@@ -15,7 +15,7 @@ const Footer = () => {
 
     return (
         <div>
-            <form>
+            <form className="footer">
                 <Button variant="contained" onClick={handleSubmit(onSubmit)}>入力内容を確認</Button>
                 { /* variant の箇所では、ボタンの外観を変更することができる。 */}
             </form>

@@ -16,7 +16,7 @@ const InputAge = (props) => {
     }
 
     return (
-        <div>
+        <div className="form-input-age">
             <p>{props.Age}</p>
             <TextField
                 {...register("age", rules)}

@@ -2,6 +2,8 @@ import React from 'react';
 import { useFormContext } from "react-hook-form"; //SubmitHandlerは、submitイベントに関する関数の型宣言に使う
 import { useState } from 'react';
 import Checkbox from "@mui/material/Checkbox"; // or import { Checkbox } from '@mui/material';
+import { FormGroup, FormControlLabel, } from '@mui/material';
+import { Button, Grid, Box } from '@mui/material';
 
 const InputCheck = (props) => {
     const { register } = useFormContext();
@@ -21,18 +23,46 @@ const InputCheck = (props) => {
     }
 
     return (
-        <div>
-            <form>
-                <label>
+        <div className="form-input-check">
+            <FormGroup row={true} className="check-item">
+                {/*<label>
                     <Checkbox
+                        className='check-item'
                         {...register("checkedValues")}
                         value={props.Item}
                         onChange={handleChange}
                     />
                     {props.Item}
-                </label>
-            </form>
-        </div>
+    </label>*/}
+                <FormControlLabel control={
+                    <Checkbox
+                        {...register("checkedValues")}
+                        value="A"
+                        onChange={handleChange}
+                    />} label="A" />
+
+                <FormControlLabel control={
+                    <Checkbox
+                        {...register("checkedValues")}
+                        value="B"
+                        onChange={handleChange}
+                    />} label="B" />
+
+                <FormControlLabel control={
+                    <Checkbox
+                        {...register("checkedValues")}
+                        value="C"
+                        onChange={handleChange}
+                    />} label="C" />
+
+                <FormControlLabel control={
+                    <Checkbox
+                        {...register("checkedValues")}
+                        value="D"
+                        onChange={handleChange}
+                    />} label="D" />
+            </FormGroup>
+        </div >
     )
 }
 export default InputCheck;
