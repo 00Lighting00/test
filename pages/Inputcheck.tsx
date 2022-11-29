@@ -23,18 +23,17 @@ const InputCheck = (props) => {
     }
 
     return (
-        <div className="form-input-check">
-            <FormGroup row={true} className="check-item">
-                {/*<label>
+        <div>
+            <FormGroup>
+                <label className="check-item">
                     <Checkbox
-                        className='check-item'
                         {...register("checkedValues")}
                         value={props.Item}
                         onChange={handleChange}
                     />
                     {props.Item}
-    </label>*/}
-                <FormControlLabel control={
+                </label>
+                {/*<FormControlLabel control={
                     <Checkbox
                         {...register("checkedValues")}
                         value="A"
@@ -60,7 +59,7 @@ const InputCheck = (props) => {
                         {...register("checkedValues")}
                         value="D"
                         onChange={handleChange}
-                    />} label="D" />
+                />} label="D" />*/}
             </FormGroup>
         </div >
     )

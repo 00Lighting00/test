@@ -17,6 +17,21 @@ MUI導入後の問題点
  ・自由にレイアウトできない。
  -ボタンどうしの間隔を変えられるようにする。
  -Stackタグを用いたところ思うような挙動にならなかった。 ->CSSでレイアウト
+
+入力フォームのUIデザインのヒント
+・フォームは縦一列に配置する。
+・ラベルは入力データの上に配置する。
+・ラベルと入力データはグループ化する。ラベルと入力フィードが寄せて配置されているのが良い。違うラベルからフィード、フィードどうしで等間隔に並んでいるのはのは良くない。
+・全て大文字での表記は避ける。
+・選択肢が5個以下なら全て表示してしまう。
+・プレースホルダテキストは、入力時に見えなくなってしまうので必ず枠外にもラベルを表示する。
+・チェックボックスは縦に配置することによりチェックしたかどうか分かりやすくなるので縦に表示する。
+・CTAはどんなアクションにつながるか、を分かりやすく表示する。ex.)「送信する」では何が送信されるか曖昧であるので「登録する」「Sign Up」等の書き方にする。
+・エラー表示はインラインで表示。
+・入力途中でバリデーションエラーを表示しない。
+・基本的なヘルプテキストは表示する。
+・入力フォームの幅は適切にする。
+・関連情報ごとにグループ化する。ex.)「基本情報」と「会社情報」
 */
 import { useRouter } from "next/router";
 import { useForm, FormProvider } from "react-hook-form";
@@ -31,11 +46,11 @@ import Confirm from "./Confirm";
 const Main = () => {
   const router = useRouter();
 
-  /*const firstname = "姓*";
-  const lastname = "名*"
-  const age = "年齢*";
-  const gender = "性別*";*/
-  const check = "以下より選択してください。(複数選択可)"
+  const firstname = "姓【必須】";
+  const lastname = "名【必須】";
+  const age = "年齢【必須】";
+  const gender = "性別【必須】";
+  const check = "以下より選択してください。(複数選択可) (任意)"
   const CheckList = ["A", "B", "C", "D"];
 
   const isConfirm = router.query.confirm;
@@ -51,11 +66,20 @@ const Main = () => {
         {!isConfirm ? (
           <>
             <Header />
-            <InputName />
-            <InputAge />
-            <InputGender />
 
-            {/*<p className="form-input-check">{check}</p>
+            <p className="form-input-name"></p>
+            <InputName
+              Firstname={firstname}
+              Lastname={lastname}
+            />
+            <InputAge
+              Age={age}
+            />
+            <InputGender
+              Gender={gender}
+            />
+
+            <p className="check">{check}</p>
             {CheckList.map((CheckItem) => {
               return (
                 // eslint-disable-next-line react/jsx-key
@@ -64,11 +88,7 @@ const Main = () => {
                 />
               )
             })
-            }*/}
-
-            <p className="form-input-check">{check}</p>
-            <InputCheck />
-
+            }
 
             <Footer />
           </>

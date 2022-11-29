@@ -21,31 +21,38 @@ const Confirm = () => {
     }
 
     return (
-        <div className="confirm">
-            <h1>確認画面</h1>
+        <div>
+            <h1 className="confirm-headline">入力確認画面</h1>
             <form>
                 <div>
-                    <p>氏名</p>
-                    <h4>{values.firstname}　{values.lastname}</h4>
+                    <span className="confirm-label">氏名</span>
+                    <b>{values.firstname}　{values.lastname}</b>
                 </div>
 
                 <div>
-                    <p>年齢</p>
-                    <h4>{values.age} 歳</h4>
+                    <span className="confirm-label">年齢</span>
+                    <b>{values.age} 歳</b>
                 </div>
 
                 <div>
-                    <p>性別</p>
-                    <h4>{values.gender}</h4>
+                    <span className="confirm-label">性別</span>
+                    <b>{values.gender}</b>
                 </div>
 
                 <div>
-                    <p>選択した内容</p>
-                    <h4>{values.checkedValues}</h4>
+                    <span className="confirm-check">選択した内容</span>
+                    <b>{values.checkedValues}</b>
                 </div>
             </form>
-            <Button variant="contained" size="large" onClick={submit}>送信</Button>
-            <Button variant="contained" size="large" onClick={onSubmit}>戻って修正する</Button>
+
+            <a className="SignUp-Button">
+                <Button variant="contained" size="large" onClick={submit}>登録する</Button>
+            </a>
+
+            <a className="Back-Button">
+                <Button variant="outlined" size="large" onClick={onSubmit}>戻って修正する</Button>
+            </a>
+
         </div>
     )
 }

@@ -27,21 +27,30 @@ const InputGender = (props) => {
     }
 
     return (
-        <div className="form-input-gender">
-            <p></p>
-            <FormControl sx={{ minWidth: 100 }}>
-                <InputLabel id="box_label">性別*</InputLabel>
-                <Select
-                    labelId="box_label"
-                    value={select}
-                    {...register("gender", rules)}
-                    onChange={handleChange}
-                >
-                    <MenuItem value="男性">男性</MenuItem>
-                    <MenuItem value="女性">女性</MenuItem>
-                    <MenuItem value="その他">その他</MenuItem>
-                </Select>
+        <div>
+            <p className="gender">{props.Gender}</p>
+            <form>
+                {/*<FormControl sx={{ minWidth: 100 }}>
+                    <InputLabel id="box_label">性別*</InputLabel>
+                    <Select
+                        labelId="box_label"
+                        value={select}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value="男性">男性</MenuItem>
+                        <MenuItem value="女性">女性</MenuItem>
+                        <MenuItem value="その他">その他</MenuItem>
+                    </Select>
+    </FormControl>*/}
+            </form>
+            <FormControl className="form-gender" component="fieldset">
+                <RadioGroup onChange={handleChange}>
+                    <FormControlLabel {...register("gender", rules)} value="男性" control={<Radio />} label="男性" />
+                    <FormControlLabel {...register("gender", rules)} value="女性" control={<Radio />} label="女性" />
+                    <FormControlLabel {...register("gender", rules)} value="その他" control={<Radio />} label="その他" />
+                </RadioGroup>
             </FormControl>
+
             {/*<label>*/}
             {/*<select {...register("gender", rules)} onChange={handleChange}>/*}
                     {/*<option value="">選択......</option>

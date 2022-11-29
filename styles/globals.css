@@ -30,30 +30,100 @@ a {
   text-align: center;
 }
 
+.firstname {
+  /*姓【必須】*/
+  padding-left: 820px;
+  padding-top: 5px;
+}
+
+.lastname {
+  /*名【必須】*/
+  padding-left: 820px;
+  padding-top: 5px;
+}
+
+.age {
+  /*年齢【必須】*/
+  padding-left: 820px;
+  padding-top: 5px;
+}
+
+.gender {
+  /*性別【必須】*/
+  padding-top: 5px;
+  padding-left: 820px;
+}
+
+.form-gender {
+  /*ラジオボタン*/
+  padding-left: 850px;
+}
+
 .form-input-name {
-  text-align: center;
+  /*姓名の入力欄*/
+  padding-left: 850px;
+  line-height: 60px;
+}
+
+.form-name {
+  /*姓名の入力欄とラベルの間隔*/
+  margin: -10px;
 }
 
 .form-input-age {
-  text-align: center;
+  /*年齢の入力欄*/
+  padding-left: 850px;
+  line-height: 60px;
 }
 
-.form-input-gender {
-  text-align: center;
+.form-age {
+  /*年齢の入力欄とラベルの間隔*/
+  margin: -10px;
 }
 
-.form-input-check {
-  text-align: center;
+.check {
+  /*以下より選択してください の箇所*/
+  padding-top: 10px;
+  line-height: 60px;
+  padding-left: 820px;
 }
 
 .check-item {
-  text-align: center;
+  /*選択肢*/
+  padding-left: 840px;
 }
+
 
 .footer {
+  /*入力内容を確認 ボタン*/
   text-align: center;
 }
 
-.confirm {
+.confirm-label {
+  /*入力確認画面の項目名*/
+  padding-right: 70px;
+  line-height: 60px;
+  padding-left: 880px;
+}
+
+.confirm-check {
+  /*入力確認画面の「選択した内容」の箇所*/
+  padding-right: 40px;
+  line-height: 60px;
+  padding-left: 850px;
+}
+
+.confirm-headline {
+  /*「入力確認画面」の文字*/
   text-align: center;
+}
+
+.SignUp-Button {
+  /*「登録する」のボタン*/
+  padding-left: 850px;
+}
+
+.Back-Button {
+  /*「戻って修正する」のボタン*/
+  margin: 30px;
 }

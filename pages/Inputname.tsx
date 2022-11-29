@@ -16,22 +16,24 @@ const InputName = (props) => {
 
     return (
         <div>
+            <p className="firstname">{props.Firstname}</p>
             <form className="form-input-name">
-                <p>{props.Firstname}</p>
                 <TextField
+                    className="form-name"
                     label="姓*"
                     {...register("firstname", rules)}
                     type="text"
-                    className="input-text"
                 />
                 {errors.firstname && errors.firstname.message}
+            </form>
 
-                <p>{props.Lastname}</p>
+            <p className="lastname">{props.Lastname}</p>
+            <form className="form-input-name">
                 <TextField
+                    className="form-name"
                     label="名*"
                     {...register("lastname", rules)}
                     type="text"
-                    className="input-text"
                 />
                 {errors.lastname && errors.lastname.message}
             </form>

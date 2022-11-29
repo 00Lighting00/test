@@ -16,14 +16,17 @@ const InputAge = (props) => {
     }
 
     return (
-        <div className="form-input-age">
-            <p>{props.Age}</p>
-            <TextField
-                {...register("age", rules)}
-                label="年齢*"
-                type="text"
-            />
-            {errors.age && errors.age.message}
+        <div>
+            <p className="age">{props.Age}</p>
+            <form className="form-input-age">
+                <TextField
+                    className="form-age"
+                    {...register("age", rules)}
+                    label="年齢*"
+                    type="text"
+                />
+                {errors.age && errors.age.message}
+            </form>
         </div>
     )
 }
