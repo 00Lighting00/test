@@ -7,7 +7,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='footer'>
             Copyright ©︎ 2022 MLIT Japn. All Rights Reserved.
         </div>
     )

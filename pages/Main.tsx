@@ -10,7 +10,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
-import CardContent from '@mui/material/CardContent';
+import { CardContent } from "@mui/material";
+
 
 const Main = () => {
 
@@ -24,7 +25,11 @@ const Main = () => {
         <div>
             <FormProvider {...methods}>
                 <Header />
-                <Body />
+
+                <CardContent className="Card">
+                    <Body />
+                </CardContent>
+
                 <Footer />
             </FormProvider>
         </div>

@@ -23,7 +23,6 @@ const Body = () => {
             <LoginButton />
         </div>
     )
-
 }
 
 export default Body;

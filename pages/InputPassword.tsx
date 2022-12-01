@@ -25,11 +25,13 @@ const InputPassword = (props) => {
                     control={control}
                     render={({ field }) => (
                         <TextField
+                            className="Input_Text"
                             {...field}
                             {...register("password", rules)}
+                            margin="normal"
+                            error={"password" in errors}
                             type="password"
                             label="Password"
-                            error={Boolean(errors.Email)}
                             helperText={errors.password && errors.password.message}
                         />
                     )}

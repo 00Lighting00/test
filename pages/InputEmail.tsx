@@ -20,15 +20,18 @@ const InputEmail = (props) => {
 
     return (
         <div>
-            <form >
+            <form>
                 <Controller
                     name="Email"
                     control={control}
                     render={({ field }) => (
                         <TextField
+                            label="Email address"
+                            /*margin="normal"*/
+                            className="Input_Text"
                             {...field}
                             {...register("email", rules)}
-                            label="Email address"
+                            error={"email" in errors}
                             placeholder='john@gmail.com'
                             helperText={errors.email && errors.email.message}
                         />)}

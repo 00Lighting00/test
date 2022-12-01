@@ -26,7 +26,63 @@ a {
   }
 }
 
-.body {
+.header {
+  /*バナー背景*/
+  background: linear-gradient(to right, white, hsl(206, 90%, 45%));
+  background-size: 100% auto;
+  box-shadow: 10px 10px 10px -10px
+}
+
+.header_img {
+  /*バナーのconpasの画像のレイアウト・デザイン*/
+  position: relative;
+  left: 2%;
+}
+
+.conpas {
+  /*CONPASの画像のレイアウト・デザイン*/
+  position: relative;
+  right: 18ch;
+}
+
+.Login_into_CyberPort {
+  /*Login into CyberPortのレイアウト・デザイン*/
+  font-size: xx-large;
+  padding-right: 11.5ch;
+}
+
+.Card {
   /*Bodyコンポーネントのレイアウト・デザイン*/
   text-align: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.Input_Text {
+  /*メールアドレス・パスワード入力欄のレイアウト・デザイン*/
+  width: 50ch;
+}
+
+.Checkbox {
+  /*ログイン情報を保持する の箇所のデザイン・レイアウト*/
+  padding-right: 30.5ch;
+}
+
+.Login_button {
+  /*ログインボタンのデザイン*/
+  width: 65ch;
+  height: 6ch;
+}
+
+.footer {
+  /*Copyright ©︎ 2022 MLIT Japn. All Rights Reserved.*/
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  background-color: rgb(231, 231, 231);
+  font-size: large;
+  padding-top: 1ch;
+  padding-bottom: 1ch;
 }

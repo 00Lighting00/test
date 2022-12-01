@@ -10,14 +10,16 @@ import Image from 'next/image'; //imgタグは公式が禁止したので、こ�
 const SeeImage = () => {
     return (
         <div>
-            <Image
-                src="/conpas.png"
-                alt=""
-                width={300}
-                height={100}
-            />
+            <p className='conpas'>
+                <Image
+                    src="/conpas.png"
+                    alt="CONPASの画像"
+                    width={150}
+                    height={50}
+                />
+            </p>
 
-            <p>Login into CyberPort</p>
+            <p className='Login_into_CyberPort'>Login into CyberPort</p>
         </div>
     )
 }

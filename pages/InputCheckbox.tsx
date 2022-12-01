@@ -24,8 +24,9 @@ const InputCheckbox = () => {
 
     return (
         <div>
-            <label>
+            <label className='Checkbox'>
                 <Checkbox
+                    sx={{ my: 2 }}
                     {...register("checkedValues")}
                     value="ログイン情報を保持する。"
                     onChange={handleChange}
