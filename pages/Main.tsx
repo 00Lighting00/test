@@ -7,7 +7,10 @@ header body footerは最低限ファイル分けする。
 以上の3点をこのファイル(Main.tsx)で呼び出して1つのページにする。
 */
 import { useForm, FormProvider } from "react-hook-form";
+import Header from "./Header";
 import Body from "./Body";
+import Footer from "./Footer";
+import CardContent from '@mui/material/CardContent';
 
 const Main = () => {
 
@@ -20,7 +23,9 @@ const Main = () => {
 
         <div>
             <FormProvider {...methods}>
+                <Header />
                 <Body />
+                <Footer />
             </FormProvider>
         </div>
     )
