@@ -10,7 +10,7 @@ const Create_user = () => {
     }
 
     return (
-        <div>
+        <div className='createButton'>
             <Button variant='contained' color='primary' onClick={ShowModal}>+新規作成</Button>
             <Modal showFlag={showModal} setShowModal={setShowModal} />
         </div>

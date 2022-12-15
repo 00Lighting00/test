@@ -54,4 +54,11 @@ a {
 
 .createButton {
   /* +新規登録 ボタンのレイアウト */
+  padding-left: 57.5%;
+
+}
+
+.edit-delete {
+  /*「編集する」ボタンと「削除する」ボタンのレイアウト*/
+  padding-left: 0;
 }

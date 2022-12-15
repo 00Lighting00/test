@@ -30,6 +30,7 @@ const Input_info = () => {
         })
             .then(response => {
                 setUsers([...users, response.data])
+                window.location.reload()//ポストできたらリロードして画面の更新
             })
             .catch(error => {
                 console.log(error);
@@ -63,9 +64,7 @@ const Input_info = () => {
             </div>
 
             <div>
-                <form onSubmit={window.location.reload()}>
-                    <Button type='submit' variant='contained' color='primary' onClick={post}>登録する</Button>
-                </form>
+                <Button type='submit' variant='contained' color='primary' onClick={post}>登録する</Button>
             </div>
         </div >
     )
