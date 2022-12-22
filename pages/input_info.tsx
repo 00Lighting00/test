@@ -1,40 +1,21 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
-import { useState, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
-import axios from 'axios';
+import { useState } from 'react';
+import Post from './post';
 
-const Input_info = () => {
+const InputInfo = () => {
     const [firstname, setFirstname] = useState('')
     const [lastname, setLastname] = useState('')
     const [age, setAge] = useState('')
 
-    const handleChange_firstname = (first) => {
-        setFirstname(first.target.value)
+    const handleChange_firstname = (event1) => {
+        setFirstname(event1.target.value)
     }
-
-    const handleChange_lastname = (last) => {
-        setLastname(last.target.value)
+    const handleChange_lastname = (event2) => {
+        setLastname(event2.target.value)
     }
-
-    const handleChange_age = (age) => {
-        setAge(age.target.value)
-    }
-
-    const [users, setUsers] = useState([])
-    const post = () => {
-        axios.post('http://demo.jriss.jp:8888/users/', {
-            firstname: firstname,
-            lastname: lastname,
-            age: age,
-        })
-            .then(response => {
-                setUsers([...users, response.data])
-                window.location.reload()//ポストできたらリロードして画面の更新
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    const handleChange_age = (event3) => {
+        setAge(event3.target.value)
     }
 
     return (
@@ -62,11 +43,9 @@ const Input_info = () => {
                     onChange={handleChange_age}
                 />
             </div>
-
-            <div>
-                <Button type='submit' variant='contained' color='primary' onClick={post}>登録する</Button>
-            </div>
-        </div >
+            <Post firstname={firstname} lastname={lastname} age={age} />
+        </div>
     )
 }
-export default Input_info;
+
+export default InputInfo;

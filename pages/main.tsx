@@ -1,6 +1,8 @@
 import React from 'react';
-import Create_user from './create_user';
-import Datatable from './data_table';
+import { useState } from 'react';
+import CreateButton from './create_button';
+import Get from './get';
+
 
 /* 
 ・はじめのページにはテーブルがあり、すでにサーバーから取得した情報が並んでいる
@@ -31,14 +33,38 @@ import Datatable from './data_table';
 -> 変数が再定義されているため。変数を受け渡し、定義は1度だけさせる形にする。
 
 ・modifyは全ての情報が入力されているusersとidの情報が必要。
+
+
+2022.12.22.
+axiosとデータテーブルを用いたものは一通りは完成した。
+しかしながら、
+・再利用できるコンポーネントが再利用できていないことや、無駄な動きがある。そのため動作が重く、かつバグが起きやすくなっている。
+ ->モーダルや入力欄は再利用できそうなので考えてみる。また、編集画面のデフォルト値の表示は、再度サーバーからデータを取得してしまっているので別の方法を考える必要がある。
+
+・間に削除されたデータがある際、編集画面のデフォルト値がIDとは異なるものが表示されてしまう。
+ ->配列のインデックスを基準にデータを参照してしまっていることが原因。IDに結びつく情報を直接参照できれば正しく表示できると思われるので、それが実現する方法を考える。
+
+以上の2点が課題。
 */
 
-const Main = () => {
+//useContextの初期値を設定
+export const ServerData = React.createContext({} as {
+    users: string
+    setUsers: React.Dispatch<React.SetStateAction<string>>
+})
+
+const Main: React.FC = () => {
+
+
+    const [users, setUsers] = useState('')
+
     return (
         <div>
-            <Create_user />
-            <Datatable />
-        </div>
+            <ServerData.Provider value={{ users, setUsers }}>
+                <CreateButton />
+                <Get />
+            </ServerData.Provider>
+        </div >
     )
 
 }

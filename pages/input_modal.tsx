@@ -2,11 +2,13 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import Input_info from "./input_info";
 
-const Modal = (props) => {
+
+const InputModal = (props) => {
 
     const closeModal = () => {
-        props.setShowModal(false);
+        props.setShowModal(false)
     }
+
     return (
         <div>
             {props.showFlag ? (
@@ -17,6 +19,7 @@ const Modal = (props) => {
                         <Button onClick={closeModal}>閉じる</Button>
                     </div>
                 </div>
+
             ) : (
                 <div>
                 </div>
@@ -25,4 +28,5 @@ const Modal = (props) => {
         </div>
     )
 }
-export default Modal;
+
+export default InputModal;

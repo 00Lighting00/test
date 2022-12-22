@@ -27,7 +27,7 @@ a {
 }
 
 .modalContent {
-  /*新規登録時のモーダルのデザイン・レイアウト*/
+  /*新規登録時、内容の編集時のモーダルのデザイン・レイアウト*/
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,7 +43,7 @@ a {
 }
 
 .overlay {
-  /*新規登録時のモーダルのオーバーレイのデザイン・オーバーレイ*/
+  /*新規登録時、内容の編集時のモーダルのオーバーレイのデザイン・オーバーレイ*/
   position: fixed;
   top: 0;
   right: 0;
@@ -54,11 +54,11 @@ a {
 
 .createButton {
   /* +新規登録 ボタンのレイアウト */
-  padding-left: 57.5%;
+  padding-left: 73%;
 
 }
 
-.edit-delete {
-  /*「編集する」ボタンと「削除する」ボタンのレイアウト*/
-  padding-left: 0;
+.deleteButton {
+  /*「削除する」ボタンのレイアウト*/
+  white-space: pre;
 }
